@@ -33,7 +33,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
                     {text} <span className="animate-blink ml-1"> | </span>
                 </div>
                 <div className="w-[260px] h-[6px] rounded bg-[color:var(--bg-soft)]/60 overflow-hidden mx-auto">
-                    <div className="w-[40%] h-full" style={{ background: 'var(--primary)' }} className="animate-loading-bar"></div>
+                    <div className="w-[40%] h-full animate-loading-bar" style={{ background: 'var(--primary)' }}></div>
                 </div>
                 <div className="mt-3 text-sm" style={{ color: 'var(--muted)' }}>Loading your experience...</div>
             </div>

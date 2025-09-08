@@ -1,6 +1,5 @@
 import React from 'react';
 import type { Project } from '../../types';
-import { Button } from '../common/Button';
 import { TechChips } from '../common/TechChips';
 
 interface ProjectCardProps {
