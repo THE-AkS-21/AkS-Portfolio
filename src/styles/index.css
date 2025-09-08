@@ -1,7 +1,4 @@
 @import "tailwindcss";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 html,
 body {
@@ -10,6 +7,29 @@ body {
     font-family: "Space Grotesk", sans-serif;
     background: #f3f4f6;
     color: #0a0a0a;
+}
+
+/* Design tokens */
+:root {
+    --bg: #0b1220; /* deep navy */
+    --bg-soft: #0f172a; /* slate-900 */
+    --text: #e6edf3; /* github-dark text */
+    --muted: #9fb0c0; /* cool gray */
+    --primary: #3b82f6; /* blue-500 */
+    --primary-300: #93c5fd; /* blue-300 */
+    --card: rgba(255, 255, 255, 0.06);
+    --border: rgba(148, 163, 184, 0.18); /* slate-400 alpha */
+}
+
+:root[data-theme='light'] {
+    --bg: #f8fafc; /* slate-50 */
+    --bg-soft: #ffffff;
+    --text: #0f172a; /* slate-900 */
+    --muted: #475569; /* slate-600 */
+    --primary: #2563eb; /* blue-600 */
+    --primary-300: #60a5fa; /* blue-400 */
+    --card: rgba(255, 255, 255, 0.96);
+    --border: rgba(15, 23, 42, 0.10);
 }
 
 @layer utilities {
@@ -39,6 +59,31 @@ body {
     .animate-loading-bar {
         animation: loading 0.8s ease infinite;
     }
+
+    @keyframes fade-in-up {
+        0% {
+            opacity: 0;
+            transform: translateY(16px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animate-fade-in-up {
+        animation: fade-in-up 700ms ease both;
+    }
+
+    @keyframes float {
+        0% { transform: translateY(0); }
+        50% { transform: translateY(-6px); }
+        100% { transform: translateY(0); }
+    }
+
+    .animate-float {
+        animation: float 6s ease-in-out infinite;
+    }
 }
 
 .reveal {
@@ -51,3 +96,110 @@ body {
     opacity: 1;
     transform: translateY(0);
 }
+
+@layer components {
+    /* Containers and sections */
+    .container-wide {
+        @apply mx-auto w-full max-w-screen-2xl px-6 md:px-10;
+    }
+
+    .section {
+        @apply relative w-full min-h-screen py-20 flex items-center justify-center;
+    }
+
+    /* Cards and surfaces */
+    .card {
+        @apply rounded-xl border transition duration-300;
+        border-color: var(--border);
+        background: var(--card);
+    }
+
+    .hover-lift {
+        @apply hover:-translate-y-1;
+    }
+    .hover-lift:hover { box-shadow: 0 8px 28px color-mix(in srgb, var(--primary) 22%, transparent); }
+
+    .chip {
+        @apply rounded-full text-sm px-3 py-1 transition;
+        background: color-mix(in srgb, var(--primary) 12%, transparent);
+        color: var(--primary);
+    }
+
+    .chip:hover { background: color-mix(in srgb, var(--primary) 18%, transparent); }
+
+    .gradient-title {
+        @apply font-bold text-center;
+        background: linear-gradient(90deg, var(--primary), var(--primary-300));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+
+    .glass {
+        @apply backdrop-blur-lg border;
+        background: color-mix(in srgb, var(--bg) 65%, transparent);
+        border-color: var(--border);
+    }
+
+    /* Buttons */
+    .btn {
+        @apply inline-flex items-center justify-center rounded px-6 py-3 font-medium transition relative overflow-hidden;
+    }
+
+    .btn-primary {
+        @apply text-white;
+        background: var(--primary);
+        box-shadow: 0 0 0 rgba(0,0,0,0);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 24px color-mix(in srgb, var(--primary) 35%, transparent); }
+
+    .btn-secondary {
+        @apply border;
+        color: var(--primary);
+        border-color: color-mix(in srgb, var(--primary) 40%, transparent);
+        background: color-mix(in srgb, var(--primary) 6%, transparent);
+    }
+    .btn-secondary:hover { background: color-mix(in srgb, var(--primary) 12%, transparent); transform: translateY(-2px); box-shadow: 0 8px 20px color-mix(in srgb, var(--primary) 20%, transparent); }
+
+    /* Background helpers */
+    .bg-grid {
+        background-image: linear-gradient(var(--border) 1px, transparent 1px),
+            linear-gradient(90deg, var(--border) 1px, transparent 1px);
+        background-size: 40px 40px, 40px 40px;
+        background-position: -1px -1px;
+    }
+
+    .bg-noise {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+        background-size: 180px 180px;
+    }
+
+    .hero-gradient {
+        background: radial-gradient(1200px 600px at 10% -20%, color-mix(in srgb, var(--primary) 18%, transparent), transparent 60%),
+                    radial-gradient(800px 400px at 100% 10%, color-mix(in srgb, var(--primary) 12%, transparent), transparent 60%),
+                    linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%);
+    }
+
+    /* Generic section gradient background that adapts to theme */
+    .section-gradient {
+        background: radial-gradient(900px 420px at 0% -10%, color-mix(in srgb, var(--primary) 12%, transparent), transparent 60%),
+                    radial-gradient(700px 320px at 100% 110%, color-mix(in srgb, var(--primary-300) 14%, transparent), transparent 60%),
+                    linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%);
+    }
+
+    /* App-wide unified gradient canvas */
+    .app-bg {
+        background: radial-gradient(1600px 700px at -10% -20%, color-mix(in srgb, var(--primary) 10%, transparent), transparent 60%),
+                    radial-gradient(1200px 500px at 110% 120%, color-mix(in srgb, var(--primary-300) 12%, transparent), transparent 60%),
+                    linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%);
+        background-attachment: fixed;
+    }
+}
+
+/* Base overrides binding UI to tokens */
+body {
+    background: var(--bg);
+    color: var(--text);
+}
+
+/* Scroll reveal remains for progressive entrance */

@@ -2,31 +2,36 @@ import React from 'react';
 import { RevealOnScroll } from '../RevealOnScroll';
 import logo from '/src/assets/AKS_logo.png';
 import { Button } from '../common/Button';
+import { portfolioData } from '../../data/portfolioData';
+import { SocialButtons } from '../SocialButtons';
 
 export const Home: React.FC = () => {
     return (
-        <section id="home" className="min-h-screen flex items-center justify-center relative">
+        <section id="home" className="section hero-gradient bg-noise bg-grid">
             <RevealOnScroll>
-                <div className="text-center z-10 px-3 justify-center ">
-                    <div className="h-80 w-80 rounded-full object-cover flex mx-auto">
-                        <img src={logo} alt="Ankit Kumar Singh" />
-                    </div>
-                    <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-green-500 to-green-300 bg-clip-text text-transparent leading-tight">
-                        Hi, I'm Ankit Kumar Singh
-                    </h1>
-                    <p className="text-gray-400 text-lg mb-8 max-w-lg mx-auto">
-                        I'm an engineer passionate about problem-solving and innovation.
-                        With a background in computer science and extensive experience in software and web development,
-                        I'm dedicated to delivering top-notch work. I'm committed to continuous professional
-                        growth and development, always seeking new opportunities to expand my skills and knowledge.
-                    </p>
-                    <div className="flex justify-center space-x-4">
-                        <a href="#projects">
-                            <Button>View Projects</Button>
-                        </a>
-                        <a href="#contact">
-                            <Button variant="secondary">Contact Me</Button>
-                        </a>
+                <div className="container-wide z-10">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                        <div className="order-2 md:order-2 text-center md:text-left">
+                            <h1 className="gradient-title text-5xl md:text-6xl mb-4 leading-tight animate-fade-in-up">
+                                Hi, I'm {portfolioData.name}
+                            </h1>
+                            <div className="flex flex-wrap justify-center md:justify-start gap-4 animate-fade-in-up" style={{ animationDelay: '240ms' }}>
+                                <a href="#projects">
+                                    <Button>View Projects</Button>
+                                </a>
+                                <a href="#contact">
+                                    <Button variant="secondary">Contact Me</Button>
+                                </a>
+                            </div>
+                            <div className="mt-6 animate-fade-in-up" style={{ animationDelay: '360ms' }}>
+                                <SocialButtons />
+                            </div>
+                        </div>
+                        <div className="order-1 md:order-1 flex md:justify-start justify-center">
+                            <div className="h-44 w-44 md:h-80 md:w-80 rounded-full overflow-hidden mb-6 animate-float shadow-[0_10px_40px_rgba(0,0,0,0.35)] border" style={{ borderColor: 'var(--border)' }}>
+                                <img src={logo} alt={portfolioData.name} className="w-full h-full object-cover" />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </RevealOnScroll>

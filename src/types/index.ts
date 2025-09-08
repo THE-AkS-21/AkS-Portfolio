@@ -16,18 +16,29 @@ export interface WorkExperience {
     company: string;
     period: string;
     description: string;
+    technologies?: string[];
 }
 
 export interface Education {
+    title?: string; // e.g., Schooling, Graduation, Post Graduation
     degree: string;
     institution: string;
     period: string;
-    coursework: string[];
+    coursework: string[] | string;
 }
 
 export interface PortfolioData {
+    name: string;
+    about: string;
     projects: Project[];
     skills: Skill[];
     workExperience: WorkExperience[];
-    education: Education;
+    education: Education[];
+    resumeUrl?: string;
+    socials?: {
+        github?: string;
+        linkedin?: string;
+        twitter?: string;
+        email?: string;
+    };
 }
