@@ -1,6 +1,6 @@
 import React from 'react';
 import { portfolioData } from '../../data/portfolioData';
-import logo from '/src/assets/AKS_logo.png';
+import logo from '/src/assets/hero.png';
 import { SocialButtons } from '../SocialButtons';
 import Background from '../../assets/background.png';
 import {Button} from "../common/Button.tsx";

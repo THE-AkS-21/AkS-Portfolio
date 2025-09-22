@@ -1,7 +1,7 @@
 import React from 'react';
 import { portfolioData } from '../../data/portfolioData';
 import { Section } from '../common/Section';
-import logo from '/src/assets/AKS_logo.png'; // Using your main logo
+import logo from '/src/assets/hero2.png';
 
 export const About: React.FC = () => {
     return (
