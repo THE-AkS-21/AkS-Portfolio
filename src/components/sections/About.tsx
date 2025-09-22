@@ -1,27 +1,21 @@
 import React from 'react';
-import { RevealOnScroll } from '../RevealOnScroll';
 import { portfolioData } from '../../data/portfolioData';
-import Background from "../../assets/background.png";
-// About section now focuses on a brief intro; skills/education/experience moved to their own sections
+import { Section } from '../common/Section';
+import logo from '/src/assets/AKS_logo.png'; // Using your main logo
 
 export const About: React.FC = () => {
     return (
-        <section id="about" className="section bg-noise" style={{ backgroundImage: `url(${Background})`,
-            backgroundSize: 'cover', // Stretches the image to cover the whole section
-            backgroundPosition: 'center', // Centers the image
-            backgroundRepeat: 'no-repeat' // Prevents the image from repeating
-        }}>
-            <RevealOnScroll>
-                <div className="container-wide">
-                    <h2 className="gradient-title text-3xl md:text-4xl mb-8">ABOUT ME</h2>
-
-                    <div className="card hover-lift p-6">
-                        <p className="text-gray-400">
-                            {portfolioData.aboutPage}
-                        </p>
-                    </div>
+        <Section id="about" title="ABOUT ME">
+            <div className="card p-8 flex flex-col md:flex-row items-center gap-10 max-w-5xl mx-auto">
+                <div className="w-48 h-48 md:w-60 md:h-60 flex-shrink-0 rounded-full overflow-hidden border-4 shadow-lg" style={{ borderColor: 'var(--primary)'}}>
+                    <img src={logo} alt={portfolioData.name} className="w-full h-full object-cover" />
                 </div>
-            </RevealOnScroll>
-        </section>
+                <div className="text-center md:text-left">
+                    <p className="text-lg" style={{ color: 'var(--muted)' }}>
+                        {portfolioData.aboutPage}
+                    </p>
+                </div>
+            </div>
+        </Section>
     );
 };

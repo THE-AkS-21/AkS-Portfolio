@@ -1,28 +1,21 @@
 import React from 'react';
-import { RevealOnScroll } from '../RevealOnScroll';
 import { portfolioData } from '../../data/portfolioData';
 import { ProjectCard } from '../cards/ProjectCard';
-import Background from "../../assets/background.png";
+import { Section } from '../common/Section';
 
 export const Projects: React.FC = () => {
+    // Return null if there are no projects to show
+    if (!portfolioData.projects || portfolioData.projects.length === 0) {
+        return null;
+    }
+
     return (
-        <section id="projects" className="section bg-noise" style={{ backgroundImage: `url(${Background})`,
-            backgroundSize: 'cover', // Stretches the image to cover the whole section
-            backgroundPosition: 'center', // Centers the image
-            backgroundRepeat: 'no-repeat' // Prevents the image from repeating
-        }}>
-            <RevealOnScroll>
-                <div className="container-wide">
-                    <h2 className="gradient-title text-3xl md:text-4xl mb-8">Featured Projects</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        {portfolioData.projects.map((project, i) => (
-                            <div key={i} className="card hover-lift p-6">
-                                <ProjectCard project={project} />
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </RevealOnScroll>
-        </section>
+        <Section id="projects" title="Featured Projects">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {portfolioData.projects.map((project, i) => (
+                    <ProjectCard key={i} project={project} />
+                ))}
+            </div>
+        </Section>
     );
 };

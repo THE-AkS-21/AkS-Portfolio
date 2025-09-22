@@ -1,28 +1,21 @@
 import React from 'react';
-import { RevealOnScroll } from '../RevealOnScroll';
 import { portfolioData } from '../../data/portfolioData';
 import { ExperienceCard } from '../cards/ExperienceCard';
-import Background from "../../assets/background.png";
+import { Section } from '../common/Section';
 
 export const Experience: React.FC = () => {
+    // Return null if there is no work experience to show
+    if (!portfolioData.workExperience || portfolioData.workExperience.length === 0) {
+        return null;
+    }
+
     return (
-        <section id="experience" className="section bg-noise" style={{ backgroundImage: `url(${Background})`,
-            backgroundSize: 'cover', // Stretches the image to cover the whole section
-            backgroundPosition: 'center', // Centers the image
-            backgroundRepeat: 'no-repeat' // Prevents the image from repeating
-        }}>
-            <RevealOnScroll>
-                <div className="container-wide">
-                    <h2 className="gradient-title text-3xl md:text-4xl mb-8">Experience</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        {portfolioData.workExperience.map((exp, i) => (
-                            <ExperienceCard key={i} experience={exp} />
-                        ))}
-                    </div>
-                </div>
-            </RevealOnScroll>
-        </section>
+        <Section id="experience" title="Work Experience">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                {portfolioData.workExperience.map((exp, i) => (
+                    <ExperienceCard key={i} experience={exp} />
+                ))}
+            </div>
+        </Section>
     );
 };
-
-
