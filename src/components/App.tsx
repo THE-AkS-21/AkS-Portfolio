@@ -18,20 +18,24 @@ function App() {
     return (
         <>
             {!isLoaded && <LoadingScreen onComplete={() => setIsLoaded(true)} />}
+            {/* Add flex flex-col to the main container */}
             <div
-                className={`min-h-screen transition-opacity duration-700 ${
+                className={`min-h-screen flex flex-col transition-opacity duration-700 ${
                     isLoaded ? 'opacity-100' : 'opacity-0'
                 } text-gray-200 app-bg`}
             >
                 <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
                 <MobileMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-                <Home />
-                <About />
-                <Skills />
-                <Education />
-                <Experience />
-                <Projects />
-                <Contact />
+                {/* Add a <main> tag with flex-grow to push the footer down */}
+                <main className="flex-grow">
+                    <Home />
+                    <About />
+                    <Skills />
+                    <Education />
+                    <Experience />
+                    <Projects />
+                    <Contact />
+                </main>
                 <Footer />
             </div>
         </>

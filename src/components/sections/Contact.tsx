@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { RevealOnScroll } from '../RevealOnScroll';
 import emailjs from '@emailjs/browser';
+import Background from "../../assets/background.png";
 
 export const Contact: React.FC = () => {
     const [formData, setFormData] = useState({
@@ -27,7 +28,11 @@ export const Contact: React.FC = () => {
     };
 
     return (
-        <section id="contact" className="section bg-noise">
+        <section id="contact" className="section bg-noise" style={{ backgroundImage: `url(${Background})`,
+            backgroundSize: 'cover', // Stretches the image to cover the whole section
+            backgroundPosition: 'center', // Centers the image
+            backgroundRepeat: 'no-repeat' // Prevents the image from repeating
+        }}>
             <RevealOnScroll>
                 <div className="container-wide max-w-2xl">
                     <h2 className="gradient-title text-3xl md:text-4xl mb-8">Get In Touch</h2>

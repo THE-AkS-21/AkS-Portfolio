@@ -4,7 +4,10 @@ import { portfolioData } from '../data/portfolioData';
 export const Footer: React.FC = () => {
     const year = new Date().getFullYear();
     return (
-        <footer className="mt-20 py-10 border-t" style={{ borderColor: 'var(--border)' }}>
+        <footer
+            className="bottom-0 left-0 w-full h-15 flex items-center border-t bg-white bg-opacity-70 backdrop-blur-md"
+            style={{ borderColor: 'var(--border)' }}
+        >
             <div className="container-wide flex flex-col md:flex-row items-center justify-between gap-4">
                 <div className="text-sm" style={{ color: 'var(--muted)' }}>
                     © {year} {portfolioData.name}. All rights reserved.
@@ -25,5 +28,3 @@ export const Footer: React.FC = () => {
         </footer>
     );
 };
-
-

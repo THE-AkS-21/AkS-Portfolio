@@ -2,10 +2,15 @@ import React from 'react';
 import { RevealOnScroll } from '../RevealOnScroll';
 import { portfolioData } from '../../data/portfolioData';
 import { ProjectCard } from '../cards/ProjectCard';
+import Background from "../../assets/background.png";
 
 export const Projects: React.FC = () => {
     return (
-        <section id="projects" className="section bg-noise">
+        <section id="projects" className="section bg-noise" style={{ backgroundImage: `url(${Background})`,
+            backgroundSize: 'cover', // Stretches the image to cover the whole section
+            backgroundPosition: 'center', // Centers the image
+            backgroundRepeat: 'no-repeat' // Prevents the image from repeating
+        }}>
             <RevealOnScroll>
                 <div className="container-wide">
                     <h2 className="gradient-title text-3xl md:text-4xl mb-8">Featured Projects</h2>
