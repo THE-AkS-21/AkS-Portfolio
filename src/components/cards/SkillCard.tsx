@@ -1,24 +1,23 @@
 import React from 'react';
 import { TechChips } from '../common/TechChips';
+import { Card } from '../common/Card'; // Import the reusable Card component
+import { Icon } from '../icons/Icon';
 
 interface SkillCardProps {
     title: string;
     items: string[];
-    icon?: React.ReactNode;
 }
 
-export const SkillCard: React.FC<SkillCardProps> = ({ title, items, icon }) => {
+export const SkillCard: React.FC<SkillCardProps> = ({ title, items }) => {
     return (
-        <div className="card hover-lift p-6">
+        <Card>
             <div className="flex items-center justify-center gap-2 mb-4">
-                {icon && <span className="text-2xl hover:scale-110 transition" style={{ color: 'var(--primary)' }} aria-hidden>{icon}</span>}
+                <Icon name={title} className="text-2xl" />
                 <h3 className="text-xl font-bold text-center text-blue-300">{title}</h3>
             </div>
             <div className="flex flex-wrap gap-2 justify-center">
                 <TechChips technologies={items} variant="chip" />
             </div>
-        </div>
+        </Card>
     );
 };
-
-
