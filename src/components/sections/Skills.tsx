@@ -1,7 +1,6 @@
 import React from 'react';
 import { portfolioData } from '../../data/portfolioData';
 import { SkillCard } from '../cards/SkillCard';
-import { getSkillIcon } from '../icons/skillIcons';
 import { Section } from '../common/Section';
 
 export const Skills: React.FC = () => {
@@ -13,7 +12,6 @@ export const Skills: React.FC = () => {
                         key={skill.category}
                         title={skill.category}
                         items={skill.technologies}
-                        icon={getSkillIcon(skill.category)}
                     />
                 ))}
             </div>

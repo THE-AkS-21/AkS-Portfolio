@@ -3,6 +3,7 @@ import { portfolioData } from '../../data/portfolioData';
 import logo from '/src/assets/AKS_logo.png';
 import { SocialButtons } from '../SocialButtons';
 import Background from '../../assets/background.png';
+import {Button} from "../common/Button.tsx";
 
 export const Home: React.FC = () => {
     return (
@@ -22,7 +23,15 @@ export const Home: React.FC = () => {
                 </h1>
                 {/* Added text-gray-200 for a softer, readable color */}
                 <p className="text-xl md:text-2xl mb-8 text-gray-600">{portfolioData.aboutHome}</p>
-                <div className="mt-6">
+                <div className="flex flex-wrap justify-center items-center gap-4">
+                    <a href="#projects">
+                        <Button>View My Work</Button>
+                    </a>
+                    <a href="#contact">
+                        <Button variant="secondary">Get In Touch</Button>
+                    </a>
+                </div>
+                <div className="mt-8">
                     <SocialButtons />
                 </div>
             </div>
