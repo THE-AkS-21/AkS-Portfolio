@@ -1,14 +1,33 @@
 import React from 'react';
 import { Icon, getIconColor } from '../icons/Icon';
 
-// The 'variant' prop is no longer needed, so we remove it from the interface.
 interface TechChipsProps {
     technologies: string[];
+    variant?: 'chip' | 'badge'; // Add the variant prop back
 }
 
-export const TechChips: React.FC<TechChipsProps> = ({ technologies }) => {
+export const TechChips: React.FC<TechChipsProps> = ({ technologies, variant = 'chip' }) => {
     if (!technologies || technologies.length === 0) return null;
 
+    // Logic for the small, icon-only badge variant
+    if (variant === 'badge') {
+        return (
+            <div className="flex flex-wrap gap-2">
+                {technologies.map((tech) => (
+                    <span
+                        key={tech}
+                        className="inline-flex items-center justify-center h-9 w-9 rounded-full border backdrop-blur-sm"
+                        style={{ borderColor: 'var(--border)', background: 'color-mix(in srgb, var(--bg-soft) 70%, transparent)' }}
+                        title={tech}
+                    >
+                        <Icon name={tech} className="text-lg" />
+                    </span>
+                ))}
+            </div>
+        );
+    }
+
+    // Default chip variant with text and icon
     return (
         <div className="flex flex-wrap gap-2 justify-center">
             {technologies.map((tech) => {
