@@ -16,8 +16,8 @@ export const About: React.FC = () => {
                     <h2 className="gradient-title text-3xl md:text-4xl mb-8">ABOUT ME</h2>
 
                     <div className="card hover-lift p-6">
-                        <p className="text-gray-300">
-                            {portfolioData.about}
+                        <p className="text-gray-400">
+                            {portfolioData.aboutPage}
                         </p>
                     </div>
                 </div>

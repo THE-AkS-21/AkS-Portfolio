@@ -1,6 +1,9 @@
 export interface Project {
+    id: string;
     title: string;
     description: string;
+    readme?: string;
+    gallery?: string[];
     technologies: string[];
     liveDemo?: string;
     sourceCode?: string;
@@ -25,11 +28,14 @@ export interface Education {
     institution: string;
     period: string;
     coursework: string[] | string;
+    location?: string;
+    logo?: string;
 }
 
 export interface PortfolioData {
     name: string;
-    about: string;
+    aboutHome: string;
+    aboutPage: string;
     projects: Project[];
     skills: Skill[];
     workExperience: WorkExperience[];

@@ -1,17 +1,18 @@
 import React from 'react';
 import type { Project } from '../../types';
 import { TechChips } from '../common/TechChips';
+import { Link } from 'react-router-dom';
 
 interface ProjectCardProps {
     project: Project;
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
-    const { title, description, technologies, liveDemo, sourceCode } = project;
+    const { id, title, description, technologies, liveDemo, sourceCode } = project;
     return (
-        <div className="card hover-lift p-6">
-            <h3 className="text-xl font-bold mb-2 text-center">{title}</h3>
-            <p className="text-gray-300 mb-4">{description}</p>
+        <Link to={`/project/${id}`} className="block card hover-lift p-6 h-full">
+            <h3 className="text-xl font-bold mb-2 text-center text-blue-300">{title}</h3>
+            <p className="text-gray-400 mb-4">{description}</p>
             <div className="flex flex-wrap gap-2 mb-4">
                 <TechChips technologies={technologies} variant="chip" />
             </div>
@@ -35,7 +36,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                     </a>
                 )}
             </div>
-        </div>
+        </Link>
     );
 };
 

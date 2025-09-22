@@ -35,13 +35,14 @@ export const TechChips: React.FC<TechChipsProps> = ({ technologies, variant = 'c
                 return (
                     <span
                         key={i}
-                        className="chip hover:scale-105 active:scale-95 inline-flex items-center gap-1"
+                        className="chip hover:scale-105 active:scale-95 inline-flex items-center gap-1 relative overflow-hidden"
                         title={tech}
                         style={{
                             color: brand,
                             background: `color-mix(in srgb, ${brand} 14%, transparent)`
                         }}
                     >
+                        <span className="absolute inset-0 animate-moving-stripes opacity-50"></span>
                         <span style={{ color: brand }}>{getTechIcon(tech)}</span>
                         <span>{tech}</span>
                     </span>

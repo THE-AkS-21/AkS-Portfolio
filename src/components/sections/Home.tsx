@@ -21,7 +21,7 @@ export const Home: React.FC = () => {
                     Hi, I'm {portfolioData.name}
                 </h1>
                 {/* Added text-gray-200 for a softer, readable color */}
-                <p className="text-xl md:text-2xl mb-8 text-gray-600">{portfolioData.about}</p>
+                <p className="text-xl md:text-2xl mb-8 text-gray-600">{portfolioData.aboutHome}</p>
                 <div className="mt-6">
                     <SocialButtons />
                 </div>
