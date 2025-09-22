@@ -144,6 +144,6 @@ This project aims to provide a clean, scalable, and modular architecture for pro
     resumeUrl: "/resume.pdf",
     socials: {
         github: "https://github.com/THE-AkS-21",
-        linkedin: "https://www.linkedin.com/in/ankit-kumar-singh-2a7815206/"
+        linkedin: "https://www.linkedin.com/in/ankit-kumar-singh-535341203/"
     }
 };

@@ -33,7 +33,7 @@ export const EducationCard: React.FC<EducationCardProps> = ({ education }) => {
             )}
             <div className="flex-1">
                 <h3 className="text-xl font-bold text-gray-300" style={{ color: 'var(--text)' }}>{institution}</h3>
-                <p className="font-semibold text-gray-200">{degree}</p>
+                <p className="font-semibold text-gray-200" style={{color: 'var(--text)'}}>{degree}</p>
                 <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm mt-1" style={{ color: 'var(--muted)' }}>
                     {period && (
                         <span>{period}</span>
