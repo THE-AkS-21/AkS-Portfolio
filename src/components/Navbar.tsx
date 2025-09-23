@@ -8,7 +8,7 @@ interface NavbarProps {
 }
 
 const NavLink: React.FC<{ href: string; children: React.ReactNode }> = ({ href, children }) => (
-    <a href={`/AkS-Portfolio/${href}`} className="text-blue-500 hover:text-gray-500 transition-colors">
+    <a href={href} className="text-blue-500 hover:text-gray-500 transition-colors">
         {children}
     </a>
 );
