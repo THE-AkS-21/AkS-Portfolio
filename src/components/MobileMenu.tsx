@@ -1,32 +1,41 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 interface MobileMenuProps {
     menuOpen: boolean;
     setMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
+const MobileNavLink: React.FC<{ href: string; children: React.ReactNode; onClick: () => void }> = ({ href, children, onClick }) => (
+    <a href={`/AkS-Portfolio/${href}`} onClick={onClick} className={`text-2xl font-semibold text-green-200 my-4`}>
+        {children}
+    </a>
+);
+
+
 export const MobileMenu: React.FC<MobileMenuProps> = ({ menuOpen, setMenuOpen }) => {
-    const linkClasses = `text-2xl font-semibold text-green-200 my-4 transform transition-transform duration-300 ${menuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`;
+    const closeMenu = () => setMenuOpen(false);
 
     return (
         <div
             className={`fixed top-0 left-0 w-full z-40 flex flex-col items-center justify-center transition-all duration-300 ease-in-out glass ${menuOpen ? "h-screen opacity-100 pointer-events-auto" : "h-0 opacity-0 pointer-events-none"}`}
         >
             <button
-                onClick={() => setMenuOpen(false)}
+                onClick={closeMenu}
                 className="absolute top-6 right-6 text-green-600 text-5xl focus:outline-none cursor-pointer"
                 aria-label="Close Menu"
             >
                 &times;
             </button>
 
-            <a href="#home" onClick={() => setMenuOpen(false)} className={linkClasses}>Home</a>
-            <a href="#about" onClick={() => setMenuOpen(false)} className={linkClasses}>About</a>
-            <a href="#skills" onClick={() => setMenuOpen(false)} className={linkClasses}>Skills</a>
-            <a href="#education" onClick={() => setMenuOpen(false)} className={linkClasses}>Education</a>
-            <a href="#experience" onClick={() => setMenuOpen(false)} className={linkClasses}>Experience</a>
-            <a href="#projects" onClick={() => setMenuOpen(false)} className={linkClasses}>Projects</a>
-            <a href="#contact" onClick={() => setMenuOpen(false)} className={linkClasses}>Contact</a>
+            {/* Use Link for the home button and MobileNavLink for sections */}
+            <Link to="/" onClick={closeMenu} className="text-2xl font-semibold text-green-200 my-4">Home</Link>
+            <MobileNavLink href="#about" onClick={closeMenu}>About</MobileNavLink>
+            <MobileNavLink href="#skills" onClick={closeMenu}>Skills</MobileNavLink>
+            <MobileNavLink href="#education" onClick={closeMenu}>Education</MobileNavLink>
+            <MobileNavLink href="#experience" onClick={closeMenu}>Experience</MobileNavLink>
+            <MobileNavLink href="#projects" onClick={closeMenu}>Projects</MobileNavLink>
+            <MobileNavLink href="#contact" onClick={closeMenu}>Contact</MobileNavLink>
         </div>
     );
 };

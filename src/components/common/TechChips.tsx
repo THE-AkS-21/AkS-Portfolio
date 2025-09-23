@@ -1,9 +1,10 @@
 import React from 'react';
 import { Icon, getIconColor } from '../icons/Icon';
 
+// The 'variant' prop is now properly handled.
 interface TechChipsProps {
     technologies: string[];
-    variant?: 'chip' | 'badge'; // Add the variant prop back
+    variant?: 'chip' | 'badge';
 }
 
 export const TechChips: React.FC<TechChipsProps> = ({ technologies, variant = 'chip' }) => {
@@ -27,7 +28,7 @@ export const TechChips: React.FC<TechChipsProps> = ({ technologies, variant = 'c
         );
     }
 
-    // Default chip variant with text and icon
+    // Default "chip" variant with icon and text
     return (
         <div className="flex flex-wrap gap-2 justify-center">
             {technologies.map((tech) => {

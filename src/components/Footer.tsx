@@ -6,7 +6,7 @@ export const Footer: React.FC = () => {
     const year = new Date().getFullYear();
     return (
         <footer
-            className="w-full py-6 border-t bg-white/80 backdrop-blur-md"
+            className="w-full py-6 h-15 flex align-center border-t bg-white/80 backdrop-blur-md"
             style={{ borderColor: 'var(--border)' }}
         >
             <div className="container-wide flex flex-col md:flex-row items-center justify-between gap-4">
