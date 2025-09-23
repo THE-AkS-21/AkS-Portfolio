@@ -68,14 +68,14 @@ export const ProjectPage: React.FC = () => {
                 )}
 
                 {/* README Section - Full Width */}
-                <div className="container-wide card p-6 md:p-10 overflow-hidden">
+                <div className="container-wide card p-6 md:p-10 overflow-hidden text-gray-400 bg-gray-800 rounded-md shadow-lg mb-12">
                     <article className="">
                         <ReactMarkdown>{project.readme}</ReactMarkdown>
                     </article>
                 </div>
 
                 <div className="container-wide text-center mt-12">
-                    <Link to="/" className="btn btn-secondary">← Back to Portfolio</Link>
+                    <Link to="/AkS-Portfolio/#projects" className="btn btn-secondary">← Back to Portfolio</Link>
                 </div>
             </main>
         </div>
