@@ -16,7 +16,6 @@ interface EducationCardProps {
 
 export const EducationCard: React.FC<EducationCardProps> = ({ education }) => {
     const { degree, institution, period, coursework, location, logo } = education;
-
     if (!degree || !institution) {
         return null;
     }
