@@ -34,9 +34,17 @@ A modern, responsive Streamlit dashboard for Bombay Shaving Company to track and
             technologies: ["ASP.NET Core 8", "PostgreSQL", "Docker", "JWT", "Swagger", "ReactJS"],
             sourceCode: "https://github.com/THE-AkS-21/E-Commerce_Product_Management_System",
             gallery: [
-                "/src/assets/gallery/ecommerce-1.png",
-                "/src/assets/gallery/ecommerce-2.png",
-                "/src/assets/gallery/ecommerce-3.png",
+                "/assets/gallery/ecommerce-1.png",
+                "/assets/gallery/ecommerce-2.png",
+                "/assets/gallery/ecommerce-3.png",
+                "/assets/gallery/ecommerce-4.png",
+                "/assets/gallery/ecommerce-5.png",
+                "/assets/gallery/ecommerce-6.png",
+                "/assets/gallery/ecommerce-7.png",
+                "/assets/gallery/ecommerce-8.png",
+                "/assets/gallery/ecommerce-9.png",
+                "/assets/gallery/ecommerce-10.png",
+                "/assets/gallery/ecommerce-11.png",
             ],
             readme: `
 # 🛒 E-Commerce Product Management System
