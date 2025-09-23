@@ -19,7 +19,7 @@ export const Home: React.FC = () => {
                     </div>
                 </div>
                 <h1 className="text-5xl md:text-6xl mb-4 leading-tight text-gray-600 font-bold">
-                    Hi, I'm {portfolioData.name}
+                    Hey, I'm {portfolioData.name}
                 </h1>
                 {/* Added text-gray-200 for a softer, readable color */}
                 <p className="text-xl md:text-2xl mb-8 text-gray-600">{portfolioData.aboutHome}</p>
