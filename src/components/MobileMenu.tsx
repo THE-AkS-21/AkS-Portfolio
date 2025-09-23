@@ -7,7 +7,7 @@ interface MobileMenuProps {
 }
 
 const MobileNavLink: React.FC<{ href: string; children: React.ReactNode; onClick: () => void }> = ({ href, children, onClick }) => (
-    <a href={`/AkS-Portfolio/${href}`} onClick={onClick} className={`text-2xl font-semibold text-green-200 my-4`}>
+    <a href={href} onClick={onClick} className={`text-2xl font-semibold text-green-200 my-4`}>
         {children}
     </a>
 );

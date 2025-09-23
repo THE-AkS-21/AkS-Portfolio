@@ -15,7 +15,7 @@ function App() {
             <MobileMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
             <main className="flex-grow">
                 <Routes>
-                    <Route path="/AkS-Portfolio/" element={<PortfolioLayout />} />
+                    <Route path="/" element={<PortfolioLayout />} />
                     <Route path="/project/:projectId" element={<ProjectPage />} />
                 </Routes>
             </main>

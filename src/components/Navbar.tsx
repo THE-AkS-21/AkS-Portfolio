@@ -24,7 +24,7 @@ export const Navbar: React.FC<NavbarProps> = ({ menuOpen, setMenuOpen }) => {
             <div className="container-wide">
                 <div className="flex justify-between items-center h-16">
                     {/* Use the Link component for a proper SPA navigation to home */}
-                    <Link to="/AkS-Portfolio/" className="font-mono text-xl font-bold text-gray-600">
+                    <Link to="/" className="font-mono text-xl font-bold text-gray-600">
                         the<span className="text-blue-600">.AkS</span>
                     </Link>
                     <div className="hidden md:flex items-center space-x-8">

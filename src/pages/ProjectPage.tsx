@@ -75,7 +75,7 @@ export const ProjectPage: React.FC = () => {
                 </div>
 
                 <div className="container-wide text-center mt-12">
-                    <Link to="/AkS-Portfolio/#projects" className="btn btn-secondary">← Back to Portfolio</Link>
+                    <Link to="/#projects" className="btn btn-secondary">← Back to Portfolio</Link>
                 </div>
             </main>
         </div>
